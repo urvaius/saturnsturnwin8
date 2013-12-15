@@ -6,12 +6,12 @@ namespace saturnsturnwin8
     /// <summary>
     /// This is the main type for your game
     /// </summary>
-    public class Game1 : Game
+    public class saturnsturnwin8 : Game
     {
         GraphicsDeviceManager _graphics;
         SpriteBatch _spriteBatch;
 
-        public Game1()
+        public saturnsturnwin8()
         {
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
