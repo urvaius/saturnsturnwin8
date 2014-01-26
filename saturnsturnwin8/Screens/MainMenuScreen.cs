@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Media;
 using SaturnsTurn.Utility;
 #endregion
 
@@ -28,6 +29,7 @@ namespace GameStateManagement
         ContentManager content;
         //SoundEffect titleMusic;
        // SoundEffectInstance titleMusictInstance;
+        Song titlesong;
         /// <summary>
         /// Constructor fills in the menu contents.
         /// </summary>
@@ -68,7 +70,8 @@ namespace GameStateManagement
                 particleFont = content.Load<SpriteFont>(@"Graphics\ParticleFont50");
                 ParticleTextTexture = content.Load<Texture2D>(@"Graphics\TextParticle");
                 particleText = new ParticleText(ScreenManager.GraphicsDevice, particleFont, "Saturn's Turn", ParticleTextTexture,2.0f,screenSize);
-                
+                titlesong = content.Load<Song>(@"Sounds\titlesmusic");
+               // MediaPlayer.Play(titlesong);
         }
         #region Handle Input
 
@@ -126,10 +129,13 @@ namespace GameStateManagement
             {
                // if (AudioManager.IsInitialized.Equals(true))
                   //  AudioManager.PlaySound("titlemusic");
+                MediaPlayer.Play(titlesong);
+                
             }
             else
             {
                // AudioManager.StopSound("titlemusic");
+               // MediaPlayer.Stop();
             }
             particleText.Update();
             base.Update(gameTime, otherScreenHasFocus, coveredByOtherScreen);
